@@ -1,21 +1,21 @@
 {
   "name": "stack-of-techs",
   "version": "0.1.0",
-  "description": "",
+  "description": "Sample Project Template for React site with Gulp",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
-    "browserify": "^10.2.6",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
     "gulp-html-replace": "^1.5.1",
     "gulp-react": "^3.0.1",
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.2.0",
-    "reactify": "^1.1.1",
-    "uglify-js": "^2.4.23",
-    "vinyl-transform": "^1.0.0",
-    "watchify": "^3.2.3"
+    "uglify-js": "^2.4.23"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/idmillington/react-and-gulp-template.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
