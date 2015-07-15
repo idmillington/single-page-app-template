@@ -1,1 +1,5 @@
-React.render(<Parent />, document.getElementById('app'));
+React.render(
+	<div>
+	<Parent />
+	</div>,
+	document.getElementById('app'));

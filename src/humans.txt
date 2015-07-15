@@ -1,0 +1,11 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Ian Millington -- -- @idmillington
+
+# TECHNOLOGY COLOPHON
+
+    Front-End: React
+    Development: Less, Gulp, Uglify
