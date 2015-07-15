@@ -1,6 +1,4 @@
 React.render(
-	<div>
-	<Parent />
-	</div>,
+	<Parent />,
 	document.getElementById('app')
 );
