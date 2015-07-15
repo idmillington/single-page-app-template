@@ -1,5 +1,3 @@
-var Child = require('Child.js');
-
 var Parent = React.createClass({
   render: function(){
     return (
@@ -10,5 +8,3 @@ var Parent = React.createClass({
     )
   }
 });
-
-module.exports = Parent;

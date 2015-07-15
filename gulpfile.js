@@ -4,6 +4,8 @@ var uglify = require('uglify-js')
 var react = require('gulp-react');
 var htmlreplace = require('gulp-html-replace');
 var concat = require('gulp-concat');
+var express = require('express');
+var livereload = require('gulp-livereload');
 
 var path = {
   HTML_SRC: ['src/index.html'],
@@ -33,21 +35,36 @@ path.ALL_SRC = path.HTML_SRC.concat(path.JSX_SRC);
 // ------------------------------------------------------------------------
 
 gulp.task('dev', ['transformJSX', 'copyStaticFiles']);
-gulp.task('default', ['watch']);
+gulp.task('default', ['contentServer', 'reloadServer', 'watch']);
 
 // Creates the non-minified transpiled JS from JSX
 gulp.task('transformJSX', function() {
   gulp.src(path.JSX_SRC)
     .pipe(react())
-    .pipe(gulp.dest(path.DEV_PATH('js')));
+    .pipe(gulp.dest(path.DEV_PATH('js')))
+    .pipe(livereload());
 });
 
 // Plain copies of static files.
 gulp.task('copyStaticFiles', function(){
   gulp.src(path.HTML_SRC)
-    .pipe(gulp.dest(path.DEV_PATH()));
+    .pipe(gulp.dest(path.DEV_PATH()))
+    .pipe(livereload());
   gulp.src(path.REACT_LOCAL)
-    .pipe(gulp.dest(path.DEV_PATH('js')));
+    .pipe(gulp.dest(path.DEV_PATH('js')))
+    .pipe(livereload());
+});
+
+// Serve the app via Express
+gulp.task('contentServer', function() {
+  var server = express();
+  server.use(express.static(path.DEV_PATH()));
+  server.listen(4000);
+});
+
+// Run the live reload server.
+gulp.task('reloadServer', function() {
+  livereload.listen({basePath: path.DEV_PATH()});
 });
 
 // Tracks changes and rebuilds.
