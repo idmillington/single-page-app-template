@@ -57,8 +57,10 @@ path.ALL_SRC = [].concat(
 // Development tasks.
 // ------------------------------------------------------------------------
 
-gulp.task('dev', ['transformJSX', 'transformLess', 'copyDevStaticFiles']);
 gulp.task('default', ['dev', 'contentServer', 'reloadServer', 'watch']);
+
+// Builds the dev content without starting any servers.
+gulp.task('dev', ['transformJSX', 'transformLess', 'copyDevStaticFiles']);
 
 // Creates the non-minified transpiled JS from JSX
 gulp.task('transformJSX', function() {

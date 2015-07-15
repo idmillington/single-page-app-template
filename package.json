@@ -1,7 +1,7 @@
 {
-  "name": "stack-of-techs",
+  "name": "single-page-app-template",
   "version": "0.1.0",
-  "description": "Sample Project Template for React site with Gulp",
+  "description": "Sample Project Template for a Single-Page React site",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/idmillington/react-and-gulp-template.git"
+    "url": "git://github.com/idmillington/single-page-app-template.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Ian Millington",
   "license": "MIT"
 }
