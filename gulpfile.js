@@ -26,8 +26,11 @@ var path = {
   LESS_SRC: ['src/less/*.less'],
   MINIFIED_CSS_OUT: 'css/app.css',
 
-  REACT_LOCAL: 'lib/react.js',
-  REACT_CDN: 'https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js',
+  LIB_LOCAL: ['lib/*.js'],
+  LIB_CDN: [
+    '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+    '//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js'
+  ],
 
   DEV_DEST_PATH: 'out/dev',
   DIST_DEST_PATH: 'out/dist'
@@ -78,7 +81,7 @@ gulp.task('copyDevStaticFiles', function(){
   gulp.src(path.HTML_SRC)
     .pipe(gulp.dest(path.DEV_PATH()))
     .pipe(livereload());
-  gulp.src(path.REACT_LOCAL)
+  gulp.src(path.LIB_LOCAL)
     .pipe(gulp.dest(path.DEV_PATH('js')))
     .pipe(livereload());
   gulp.src(path.STATIC_SRC)
@@ -142,7 +145,7 @@ gulp.task('copyAndReplaceHTML', function(){
     .pipe(htmlreplace({
       'js': path.MINIFIED_JS_OUT,
       'css': path.MINIFIED_CSS_OUT,
-      'react': path.REACT_CDN
+      'libs': path.LIB_CDN
     }))
     .pipe(gulp.dest(path.DIST_PATH()));
 });
